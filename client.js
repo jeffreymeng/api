@@ -4,6 +4,8 @@ function addCDN(url, type, location) {
 	}
 	if (location === undefined) {
 		var newlocation = "head"
+	} else {
+		var newlocation = location
 	}
 	if (type === "js" || type === "javascript" || type === "JavaScript") {
 		var cdn = '<script src="' + url + '"></script>'
