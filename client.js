@@ -1,21 +1,20 @@
-function addCDN(url, type, location) {
-	if (jQuery === undefined) {
-		throw "jeffrey api requires jQuery"
-	}
-	if (location === undefined) {
-		var newlocation = "head"
-	} else {
-		var newlocation = location
-	}
-	if (type === "js" || type === "javascript" || type === "JavaScript") {
-		var cdn = '<script src="' + url + '"></script>'
-	} else if (type === "css" || type === "CSS") {
-		var cdn = '<link rel="stylesheet" href="' + url '" type="text/css">'
-	} else {
-		throw "please specify a file type(js or css)"
-	}
+(function(window){
+    //I recommend this
+    "use strict";
+    function define_draw(){
+        var japi = {};
+        japi.ex = {};
+        japi.ex.hi = function(test) {
+            alert("hi");
+        }
+        return japi;
 
-	if (cdn != undefined) {
-		$(newlocation).prepend(cdn)
-	}
-}
+    }
+    //define globally if it doesn't already exist
+    if(typeof(draw) === 'undefined'){
+        window.draw = define_draw();
+    }
+    else{
+        console.log("japi has been already defined in a variable. please renmae all variables with the name canvas to a diffrent name for japi to work");
+    }
+})(window);
